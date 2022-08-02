@@ -204,6 +204,12 @@ namespace Microsoft.ML.Transforms.Onnx
                     InterOpNumThreads = interOpNumThreads.GetValueOrDefault(),
                     IntraOpNumThreads = intraOpNumThreads.GetValueOrDefault()
                 };
+
+                //he order in which you register EPs with ORT session determines the preference order for partitioning. EPs that are registered earlier are considered first for assigning nodes/sub-graphs to them
+                //https://onnxruntime.ai/docs/performance/graph-optimizations.html
+                sessionOptions.AppendExecutionProvider_OpenVINO("GPU_FP16");//"GPU_FP16" CPU_FP32, GPU_FP32, GPU_FP16, MYRIAD_FP16, VAD-M_FP16 or VAD-F_FP32.
+                //sessionOptions.AppendExecutionProvider_CPU(1); //i think this only slows it down? or maybe doesn't matter at all
+
                 _session = new InferenceSession(modelFile, sessionOptions);
             }
 

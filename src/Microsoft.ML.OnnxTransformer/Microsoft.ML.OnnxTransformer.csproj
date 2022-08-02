@@ -11,14 +11,15 @@
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ML\Microsoft.ML.csproj" />
 
-    <ProjectReference Include="..\Microsoft.ML.Core\Microsoft.ML.Core.csproj" >
+    <ProjectReference Include="..\Microsoft.ML.Core\Microsoft.ML.Core.csproj">
       <PrivateAssets>all</PrivateAssets>
     </ProjectReference>
-    <ProjectReference Include="..\Microsoft.ML.Data\Microsoft.ML.Data.csproj" >
+    <ProjectReference Include="..\Microsoft.ML.Data\Microsoft.ML.Data.csproj">
       <PrivateAssets>all</PrivateAssets>
     </ProjectReference>
-    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="$(MicrosoftMLOnnxRuntimeVersion)" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.11.0-dev-20220408-0636-1aca08028" />
     <PackageReference Include="Google.Protobuf" Version="$(GoogleProtobufVersion)" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.OpenVino" Version="1.11.0-dev-20220408-0636-1aca08028" />
   </ItemGroup>
 
   <ItemGroup>
