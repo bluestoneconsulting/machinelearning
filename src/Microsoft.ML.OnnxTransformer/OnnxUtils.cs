@@ -202,7 +202,8 @@ namespace Microsoft.ML.Transforms.Onnx
                 var sessionOptions = new SessionOptions()
                 {
                     InterOpNumThreads = interOpNumThreads.GetValueOrDefault(),
-                    IntraOpNumThreads = intraOpNumThreads.GetValueOrDefault()
+                    IntraOpNumThreads = intraOpNumThreads.GetValueOrDefault(),
+                    GraphOptimizationLevel = GraphOptimizationLevel.ORT_DISABLE_ALL,
                 };
 
                 //he order in which you register EPs with ORT session determines the preference order for partitioning. EPs that are registered earlier are considered first for assigning nodes/sub-graphs to them
